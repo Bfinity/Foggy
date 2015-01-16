@@ -5,9 +5,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.FragmentById;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends ActionBarActivity {
+
+    @FragmentById(R.id.fragment_main)
+    MainFragment testFragment;
 
 
     @Override
