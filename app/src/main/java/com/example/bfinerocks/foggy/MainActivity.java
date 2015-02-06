@@ -1,5 +1,6 @@
 package com.example.bfinerocks.foggy;
 
+import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +14,15 @@ public class MainActivity extends ActionBarActivity {
     @FragmentById(R.id.fragment_main)
     MainFragment testFragment;
 
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        MainFragment testFragment = new MainFragment_();
+        getFragmentManager().beginTransaction()
+                .add(R.id.container, testFragment)
+                .commit();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

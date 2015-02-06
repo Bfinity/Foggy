@@ -1,5 +1,7 @@
 package com.example.bfinerocks.foggy;
 
+import android.app.Fragment;
+
 import org.androidannotations.annotations.EFragment;
 
 /**
@@ -7,5 +9,5 @@ import org.androidannotations.annotations.EFragment;
  */
 
 @EFragment(R.layout.fragment_main)
-public class MainFragment {
+public class MainFragment extends Fragment{
 }
