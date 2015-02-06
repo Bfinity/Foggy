@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="fog_levels">
+        <item>Light Fog</item>
+        <item>Medium Fog</item>
+        <item>Heavy Fog</item>
+    </string-array>
+</resources>
