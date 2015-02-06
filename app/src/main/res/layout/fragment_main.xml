@@ -12,6 +12,7 @@
     <TextView
         android:id="@+id/selection_screen_header"
         android:text="@string/selection_screen_header"
+        android:layout_margin="@dimen/selection_screen_margin"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
@@ -19,6 +20,7 @@
     <Spinner
         android:id="@+id/selection_screen_spinner"
         android:layout_below="@id/selection_screen_header"
+        android:layout_margin="@dimen/selection_screen_margin"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"></Spinner>
@@ -26,6 +28,7 @@
     <TextView
         android:id="@+id/selection_screen_reminder_text"
         android:text="@string/selection_screen_reminder_text"
+        android:layout_margin="@dimen/selection_screen_margin"
         android:layout_below="@id/selection_screen_spinner"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
@@ -34,6 +37,7 @@
     <Button
         android:id="@+id/selection_screen_done-btn"
         android:text="@string/selection_screen_done_btn"
+        android:layout_margin="@dimen/selection_screen_margin"
         android:layout_below="@id/selection_screen_reminder_text"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
