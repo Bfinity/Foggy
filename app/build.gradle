@@ -19,36 +19,11 @@ android {
     }
 }
 
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:1.0.1'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
-    }
-}
-
-repositories {
-    mavenCentral()
-    mavenLocal()
-}
-
-apply plugin: 'com.android.application'
-apply plugin: 'android-apt'
-def AAVersion = '3.1'
-
-apt {
-    arguments {
-        androidManifestFile variant.outputs[0].processResources.manifestFile
-        resourcePackageName android.defaultConfig.applicationId
-    }
-}
-
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:21.0.3'
-    apt "org.androidannotations:androidannotations:$AAVersion"
-    compile "org.androidannotations:androidannotations-api:$AAVersion"
+    compile 'com.squareup.dagger:dagger:1.2.+'
+    provided 'com.squareup.dagger:dagger-compiler:1.2.+'
+    compile 'com.jakewharton:butterknife:6.1.0'
 
 }

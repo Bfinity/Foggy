@@ -5,23 +5,13 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.FragmentById;
-
-@EActivity(R.layout.activity_main)
 public class MainActivity extends ActionBarActivity {
-
-    @FragmentById(R.id.fragment_main)
-    MainFragment testFragment;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        MainFragment testFragment = new MainFragment_();
-        getFragmentManager().beginTransaction()
-                .add(R.id.container, testFragment)
-                .commit();
+
     }
 
     @Override
