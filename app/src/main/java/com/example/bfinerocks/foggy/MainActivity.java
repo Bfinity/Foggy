@@ -11,8 +11,10 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EvaporatorNotification not = new EvaporatorNotification(this);
-        not.sendNotification();
+        setContentView(R.layout.activity_main);
+        getFragmentManager().beginTransaction()
+                .add(R.id.container, new MainFragment())
+                .commit();
     }
 
     @Override
