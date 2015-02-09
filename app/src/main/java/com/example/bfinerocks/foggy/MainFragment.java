@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 
 /**
  * Created by BFineRocks on 1/16/15.
@@ -36,6 +37,19 @@ public class MainFragment extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         selectionSpinner.setAdapter(adapter);
         return view;
+    }
+
+
+
+    @OnClick(R.id.selection_screen_done_btn)
+    public void doneButton(){
+        //todo register receiver when clicked
+/*        ComponentName receiver = new ComponentName(getActivity(), FogCastReceiver.class);
+        PackageManager packageManager = getActivity().getPackageManager();
+        packageManager.setComponentEnabledSetting(receiver,
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                PackageManager.DONT_KILL_APP);*/
+
     }
 
 
