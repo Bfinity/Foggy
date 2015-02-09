@@ -32,6 +32,8 @@ public class FogHorn {
                 return AlarmManager.INTERVAL_HALF_DAY;
             case Heavy:
                 return AlarmManager.INTERVAL_HOUR;
+            default:
+                return AlarmManager.INTERVAL_DAY;
         }
     }
 

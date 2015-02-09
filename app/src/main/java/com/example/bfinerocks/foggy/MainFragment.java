@@ -2,6 +2,7 @@ package com.example.bfinerocks.foggy;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import butterknife.OnItemSelected;
 
 /**
  * Created by BFineRocks on 1/16/15.
@@ -27,16 +29,23 @@ public class MainFragment extends Fragment {
     @InjectView(R.id.selection_screen_done_btn)
     Button doneButton;
 
+    private ArrayAdapter spinnerAdapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.inject(this, view);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.fog_levels,
+        spinnerAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.fog_levels,
                 android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        selectionSpinner.setAdapter(adapter);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        selectionSpinner.setAdapter(spinnerAdapter);
         return view;
+    }
+
+    @OnItemSelected(R.id.selection_screen_spinner)
+    public void userSelectionMade(int position){
+        Log.i("selected", spinnerAdapter.getItem(position).toString());
     }
 
 
