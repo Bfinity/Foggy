@@ -30,4 +30,6 @@ public class EvaporatorNotification extends Notification {
         NotificationManager manager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(mId,builder.build());
     }
+
+
 }
