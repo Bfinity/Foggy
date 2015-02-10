@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.bfinerocks.foggy.models.FogLevel;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -30,6 +32,7 @@ public class MainFragment extends Fragment {
     Button doneButton;
 
     private ArrayAdapter spinnerAdapter;
+    private FogLevel userSelectedFogLevel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -46,18 +49,13 @@ public class MainFragment extends Fragment {
     @OnItemSelected(R.id.selection_screen_spinner)
     public void userSelectionMade(int position){
         Log.i("selected", spinnerAdapter.getItem(position).toString());
+        userSelectedFogLevel = (FogLevel) spinnerAdapter.getItem(position);
     }
-
 
 
     @OnClick(R.id.selection_screen_done_btn)
     public void doneButton(){
         //todo register receiver when clicked
-/*        ComponentName receiver = new ComponentName(getActivity(), FogCastReceiver.class);
-        PackageManager packageManager = getActivity().getPackageManager();
-        packageManager.setComponentEnabledSetting(receiver,
-                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-                PackageManager.DONT_KILL_APP);*/
 
     }
 
