@@ -12,6 +12,7 @@ import dagger.Provides;
  */
 
 @Module(
+        library = true,
         injects = {
                 Foggy.class
         }
@@ -28,4 +29,5 @@ public class AppModule {
     public Context provideApplicationContext(){
         return app;
     }
+
 }

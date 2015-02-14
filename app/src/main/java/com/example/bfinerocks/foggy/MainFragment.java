@@ -1,6 +1,5 @@
 package com.example.bfinerocks.foggy;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,8 +9,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.bfinerocks.foggy.models.FogLevel;
+
+import java.util.Arrays;
+import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -23,7 +28,10 @@ import butterknife.OnItemSelected;
  */
 
 
-public class MainFragment extends Fragment {
+public class MainFragment extends BaseFragment implements FogView {
+
+    @Inject FogSetPresenter fogSetPresenter;
+
     @InjectView(R.id.selection_screen_spinner)
     Spinner selectionSpinner;
     @InjectView(R.id.selection_screen_reminder_selection)
@@ -43,23 +51,36 @@ public class MainFragment extends Fragment {
                 android.R.layout.simple_spinner_item);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         selectionSpinner.setAdapter(spinnerAdapter);
+
         return view;
     }
 
     @OnItemSelected(R.id.selection_screen_spinner)
     public void userSelectionMade(int position){
         Log.i("selected", spinnerAdapter.getItem(position).toString());
-        userSelectedFogLevel = (FogLevel) spinnerAdapter.getItem(position);
+        fogSetPresenter.onItemSelected(spinnerAdapter, position);
+
     }
 
 
     @OnClick(R.id.selection_screen_done_btn)
     public void doneButton(){
-        //todo register receiver when clicked
+        fogSetPresenter.onClick();
 
     }
 
+    @Override
+    public void showSettingsSaved(String text) {
+        Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT).show();
+    }
 
+    @Override
+    public void updateTextView(String text) {
+        selectionText.setText(text);
+    }
 
-
+    @Override
+    protected List<Object> getModules() {
+        return Arrays.<Object>asList(new MainModule(this, this));
+    }
 }

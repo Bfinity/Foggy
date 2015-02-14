@@ -6,24 +6,31 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 
+import javax.inject.Inject;
+
 /**
  * Created by BFineRocks on 2/9/15.
  */
 public class FogCastReceiver extends BroadcastReceiver {
 
+    @Inject
+    FogHorn alarm;
+
+    @Inject
+    EvaporatorNotification notification;
+
     private Context mContext;
     @Override
     public void onReceive(Context context, Intent intent) {
-        mContext = context;
-        //todo display notification
+        notification.sendNotification();
         if(intent.getAction().equals("android.intent.action.BOOT_COMPLETED")){
-            //todo set alarm
+          //
         }
     }
 
-    public void enableReceiver(){
-        ComponentName receiver = new ComponentName(mContext, FogCastReceiver.class);
-        PackageManager packageManager = mContext.getPackageManager();
+    public void enableReceiver(Context context){
+        ComponentName receiver = new ComponentName(context, FogCastReceiver.class);
+        PackageManager packageManager = context.getPackageManager();
         packageManager.setComponentEnabledSetting(receiver,
                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
                 PackageManager.DONT_KILL_APP);

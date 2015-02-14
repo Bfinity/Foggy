@@ -7,5 +7,6 @@
     <string name="selection_screen_header">How Foggy are you?</string>
     <string name="selection_screen_reminder_text">Daily Reminders:</string>
     <string name="selection_screen_done_btn">Done</string>
+    <string name="selection_screen_saved_toast">Fog Level Updated</string>
 
 </resources>

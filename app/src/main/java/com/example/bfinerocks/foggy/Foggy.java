@@ -18,17 +18,19 @@ public class Foggy extends Application {
     public void onCreate(){
         super.onCreate();
         objectGraph = ObjectGraph.create(getModules().toArray());
+        objectGraph.inject(this);
     }
 
-    private List<Object> getModules(){
+    protected List<Object> getModules(){
         return Arrays.<Object>asList(new AppModule(this));
+    }
+
+    public ObjectGraph createScopedGraph(Object... modules){
+        return objectGraph = objectGraph.plus(modules);
     }
 
     public void inject(Object object){
         objectGraph.inject(object);
     }
 
-    public ObjectGraph createScopedGraph(Object... modules){
-        return objectGraph.plus(modules);
-    }
 }

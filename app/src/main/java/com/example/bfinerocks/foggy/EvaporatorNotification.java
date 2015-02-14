@@ -7,7 +7,7 @@ import android.content.Context;
 /**
  * Created by BFineRocks on 2/6/15.
  */
-public class EvaporatorNotification extends Notification {
+public class EvaporatorNotification {
     Context mContext;
     int icon;
     String contentTitle;
@@ -18,7 +18,7 @@ public class EvaporatorNotification extends Notification {
         this.mContext = context;
         this.icon = R.drawable.fog;
         this.contentTitle = "Clear The Fog";
-        this.contentText = "Now is later. So do it now.";
+        this.contentText = "Now is later. So do it Now.";
         this.mId = 100;
     }
 
