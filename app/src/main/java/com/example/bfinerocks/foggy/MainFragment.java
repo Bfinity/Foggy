@@ -1,7 +1,6 @@
 package com.example.bfinerocks.foggy;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,7 +56,6 @@ public class MainFragment extends BaseFragment implements FogView {
 
     @OnItemSelected(R.id.selection_screen_spinner)
     public void userSelectionMade(int position){
-        Log.i("selected", spinnerAdapter.getItem(position).toString());
         fogSetPresenter.onItemSelected(spinnerAdapter, position);
 
     }

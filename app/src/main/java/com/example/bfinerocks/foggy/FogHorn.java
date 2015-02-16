@@ -18,7 +18,7 @@ public class FogHorn {
 
     public FogHorn(Context context){
         fogAlarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(context, FogHorn.class);
+        Intent intent = new Intent(context, FogCastReceiver.class);
         alarmIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
     }
 
@@ -37,8 +37,8 @@ public class FogHorn {
 
     public void setFogAlarm(FogLevel fogLevel){
         Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, 8);
+        calendar.setTimeInMillis(System.currentTimeMillis());
         long alarmSetting = getFogLevelAlarmSetting(fogLevel);
         fogAlarm.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmSetting, alarmIntent);
     }

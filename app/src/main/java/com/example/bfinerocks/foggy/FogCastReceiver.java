@@ -19,13 +19,23 @@ public class FogCastReceiver extends BroadcastReceiver {
     @Inject
     EvaporatorNotification notification;
 
-    private Context mContext;
+    private GraphImplementer grapher;
+
+    public FogCastReceiver(){
+
+    }
+
+    public FogCastReceiver(GraphImplementer grapher){
+        this.grapher = grapher;
+        grapher.injectToGraph(this);
+    }
+
     @Override
     public void onReceive(Context context, Intent intent) {
-        notification.sendNotification();
-        if(intent.getAction().equals("android.intent.action.BOOT_COMPLETED")){
-          //
+        if(notification == null) {
+           notification = new EvaporatorNotification(context);
         }
+        notification.sendNotification();
     }
 
     public void enableReceiver(Context context){

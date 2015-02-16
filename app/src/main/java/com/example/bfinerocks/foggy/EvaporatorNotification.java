@@ -26,7 +26,8 @@ public class EvaporatorNotification {
         Notification.Builder builder = new Notification.Builder(mContext)
                 .setSmallIcon(icon)
                 .setContentTitle(contentTitle)
-                .setContentText(contentText);
+                .setContentText(contentText)
+                .setAutoCancel(true);
         NotificationManager manager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(mId,builder.build());
     }

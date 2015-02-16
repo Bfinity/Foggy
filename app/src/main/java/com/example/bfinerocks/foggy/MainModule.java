@@ -65,7 +65,7 @@ public class MainModule {
     @Provides
     @Singleton
     public FogCastReceiver provideReceiver(){
-        return new FogCastReceiver();
+        return new FogCastReceiver(grapher);
     }
 
 }
