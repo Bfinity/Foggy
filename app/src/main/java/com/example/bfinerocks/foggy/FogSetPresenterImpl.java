@@ -43,20 +43,28 @@ public class FogSetPresenterImpl implements FogSetPresenter {
 
     @Override
     public void onClick() {
-        fogView.showSettingsSaved(context.getString(R.string.selection_screen_saved_toast));
-        receiver.enableReceiver(context);
-        alarm.setFogAlarm(fogLevel);
+        if(fogLevel == FogLevel.Clear){
+            alarm.cancelFogAlarm();
+        }
+        else {
+            fogView.showSettingsSaved(context.getString(R.string.selection_screen_saved_toast));
+            receiver.enableReceiver(context);
+            alarm.setFogAlarm(fogLevel);
+        }
     }
 
     public void setFogLevel(int positionSelected){
         switch (positionSelected){
             case 0:
-                fogLevel = FogLevel.Light;
+                fogLevel = FogLevel.Clear;
                 break;
             case 1:
-                fogLevel = FogLevel.Medium;
+                fogLevel = FogLevel.Light;
                 break;
             case 2:
+                fogLevel = FogLevel.Medium;
+                break;
+            case 3:
                 fogLevel = FogLevel.Heavy;
                 break;
             default:

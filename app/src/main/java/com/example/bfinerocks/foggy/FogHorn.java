@@ -43,5 +43,9 @@ public class FogHorn {
         fogAlarm.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmSetting, alarmIntent);
     }
 
+    public void cancelFogAlarm(){
+        fogAlarm.cancel(alarmIntent);
+    }
+
 
 }
