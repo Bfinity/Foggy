@@ -47,10 +47,10 @@ public class FogSetPresenterImpl implements FogSetPresenter {
             alarm.cancelFogAlarm();
         }
         else {
-            fogView.showSettingsSaved(context.getString(R.string.selection_screen_saved_toast));
             receiver.enableReceiver(context);
             alarm.setFogAlarm(fogLevel);
         }
+        fogView.showSettingsSaved(context.getString(R.string.selection_screen_saved_toast));
     }
 
     public void setFogLevel(int positionSelected){
